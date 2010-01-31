@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/avalon-framework-4.1.4.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/bsf-2.4.0.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/bshclient.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-codec-1.3.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-collections-3.2.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-httpclient-3.1.jar" sourcepath="/COMMONS_HTTP_CLIENT_HOME/src/java"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-io-1.4.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-jexl-1.1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/commons-net-1.4.1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/excalibur-datasource-1.1.1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/excalibur-instrument-1.0.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/excalibur-logger-1.1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/excalibur-pool-1.2.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/htmllexer-2.0-20060923.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/htmlparser-2.0-20060923.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/jakarta-oro-2.0.8.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/jCharts-0.7.5.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/jorphan.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/js_rhino1_6R5.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/junit3.8.2.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/logkit-1.2.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/serializer-2_9_1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/soap.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/Tidy.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/xalan_2_7_1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/xercesImpl-2_9_1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/xml-apis-2_9_1.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/xpp3_min-1.1.4c.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_components.jar" sourcepath="/JMETER_HOME/src/components"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_core.jar" sourcepath="/JMETER_HOME/src/core"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_ftp.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_functions.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_http.jar" sourcepath="/JMETER_HOME/src/protocol/http"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_java.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_jdbc.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_jms.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_junit.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_ldap.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_mail.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_monitors.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_report.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/lib/ext/ApacheJMeter_tcp.jar"/>
+	<classpathentry kind="var" path="JMETER_HOME/extras/ant-jmeter-1.0.9.jar"/>
+	<classpathentry kind="var" path="ANT_HOME/lib/ant.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

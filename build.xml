@@ -1,0 +1,41 @@
+<project name="JMeterRestSampler" default="package" basedir=".">
+	<record name="${basedir}/${ant.project.name}.build.log" loglevel="verbose" />
+	<property file="properties/${user.name}.properties" />
+	<property file="build.properties" />
+    <property name="src" value="${basedir}/src/main/java" />
+    <property name="lib" value="${basedir}/lib" />
+    <property name="build" value="${basedir}/build" />
+
+    <path id="project.classpath">
+        <fileset dir="${lib}">
+            <include name="**/*.jar" />
+        </fileset>
+        <fileset dir="${jmeter.home}/lib">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="init">
+        <mkdir dir="${build}" />
+	</target>
+
+	<target name="clean">
+        <delete dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<mkdir dir="${build}/classes/main" />
+		<javac includes="**/*.java" debug="${build.debug}" destdir="${build}/classes/main" target="1.5">
+			<src path="${src}" />
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<target name="package" depends="clean, compile">
+		<copy todir="${build}/classes/main">
+			  <fileset dir="${src}" includes="**/*.properties" />
+		</copy>
+		<jar destfile="${build}/${ant.project.name}.jar" basedir="${build}/classes/main" includes="**/*" />
+	</target>
+
+</project>
