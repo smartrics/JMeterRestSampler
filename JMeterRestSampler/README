@@ -1,0 +1,23 @@
+- Build
+Add a <i>properties/${user.name}.properties</i> file and define the <i>jmeter.home</i> property. Then run ant.
+${user.name} is the username of the logged in user.
+
+- Install
+Edit the ${jmeter.home}/bin/user.properties and set the searh_paths property to the location of the JMeterRestSampler.java file:
+  search_paths=/path/to/JMeterRestSampler.jar
+Alternatively, copy the JMeterRestSampler.jar in the directory ${jmeter.home}/lib/ext
+
+If installation is successful, when starting JMeter, the Rest Sampler and JMX Sampler should be available in the Add/Sampler ThreadGroup context popup menu.
+
+- Eclipse project
+To successfully compile the project within Eclipse, once imported, you need to define two workspace
+variables: JMETER_HOME and ANT_HOME to respectively point to your JMeter home and Ant home directories.
+
+- License
+The software is licensed using a BSD license.
+
+- Disclaimer
+JMeterRestSampler is no more than a toy to prove the concept of Robustness testing via JMeter.
+I am not intentioned to improve it in the foreseeable future.
+
+
