@@ -31,6 +31,8 @@ import org.apache.jmeter.util.JMeterUtils;
 import org.apache.jorphan.gui.JLabeledChoice;
 import org.apache.jorphan.gui.JLabeledTextArea;
 import org.apache.jorphan.gui.JLabeledTextField;
+import org.apache.jorphan.logging.LoggingManager;
+import org.apache.log.Logger;
 
 import smartrics.jmeter.sampler.RestSampler;
 
@@ -41,6 +43,7 @@ import smartrics.jmeter.sampler.RestSampler;
  */
 public class RestGui extends AbstractSamplerGui {
     private static final long serialVersionUID = -5576774730632101012L;
+    private static final Logger log = LoggingManager.getLoggerForClass();
     private JCheckBox useKeepAlive;
     private JCheckBox automaticRedirect;
     private JLabeledTextArea body;
@@ -52,7 +55,12 @@ public class RestGui extends AbstractSamplerGui {
     private JLabeledChoice httpMethods;
 
     public RestGui() {
-        init();
+    	log.debug("Initialised RestGui");
+    	try {
+    		init();
+    	} catch(Exception e){
+    		log.error("Exception loading RestGui", e);
+    	}
     }
 
     public String getLabelResource() {
@@ -172,6 +180,7 @@ public class RestGui extends AbstractSamplerGui {
     }
 
     public void configure(TestElement el) {
+    	log.debug("Congiguring for el: " + el.toString());
         super.configure(el);
         RestSampler sampler = (RestSampler) el;
         body.setText(sampler.getRequestBody());

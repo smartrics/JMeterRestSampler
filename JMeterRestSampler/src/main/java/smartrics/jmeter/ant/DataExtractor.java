@@ -16,11 +16,17 @@ package smartrics.jmeter.ant;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import org.apache.jmeter.reporters.ResultCollector;
+import org.apache.jmeter.reporters.ResultCollectorHelper;
+import org.apache.jmeter.samplers.SampleEvent;
 import org.apache.jmeter.samplers.SampleResult;
 import org.apache.jmeter.save.SaveService;
-import org.apache.jmeter.save.TestResultWrapper;
+import org.apache.jmeter.visualizers.GraphVisualizer;
+import org.apache.jmeter.visualizers.Visualizer;
 
 public abstract class DataExtractor {
 
@@ -38,13 +44,38 @@ public abstract class DataExtractor {
         return jtlFile;
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"serial" })
     public void handleResults() {
         String jtlFilePath = jtlFile.getAbsolutePath();
         try {
-            FileInputStream fis = new FileInputStream(getJtlFile());
-            TestResultWrapper w = SaveService.loadTestResults(fis);
-            Collection<SampleResult> results = w.getSampleResults();
+//            FileInputStream fis = new FileInputStream(getJtlFile());
+			final Collection<SampleResult> results = new ArrayList<SampleResult>();
+//			ResultCollector resultCollector = new ResultCollector(){
+//			    public void sampleOccurred(SampleEvent event) {
+//			        SampleResult result = event.getResult();
+//			        results.add(result);
+//			    }
+//			};			
+//            Visualizer visualizer = new GraphVisualizer();
+//			ResultCollectorHelper resultCollectorHelper = new ResultCollectorHelper(resultCollector, visualizer);
+//			SaveService.loadTestResults(fis, resultCollectorHelper);
+//			resultCollector.loadExistingFile();
+
+            ResultCollector rc = new ResultCollector();
+            rc.setFilename(jtlFilePath);
+            rc.setListener(new Visualizer() {
+            	
+ 				public void add(SampleResult sample) {
+					results.add(sample);
+				}
+
+				public boolean isStats() {
+					return false;
+				}
+            	
+            });
+            rc.loadExistingFile();
+			
             for (SampleResult r : results) {
                 try {
                     handle(r);
@@ -52,8 +83,6 @@ public abstract class DataExtractor {
                     throw new IllegalArgumentException("jtl file '" + jtlFilePath + "' contains data not processable", e);
                 }
             }
-        } catch (FileNotFoundException e) {
-            throw new IllegalArgumentException("Invalid input file " + jtlFilePath, e);
         } catch (Exception e) {
             e.printStackTrace();
             throw new IllegalArgumentException("Unable to load test results from " + jtlFilePath, e);
