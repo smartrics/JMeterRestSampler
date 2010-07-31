@@ -58,6 +58,7 @@ public class RestSampler extends HTTPSampler2 {
     public static final String REQUEST_HEADERS = "RestSampler.request_headers";
 
     public RestSampler() {
+    	log.debug("initialised new RestSampler");
     }
 
     public void setRequestBody(String data) {

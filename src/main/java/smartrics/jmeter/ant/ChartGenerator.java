@@ -124,9 +124,9 @@ public class ChartGenerator extends DataExtractor {
     }
 
     public static void main(String[] args) {
-        JMeterUtils.setJMeterHome("/opt/java/jakarta-jmeter-2.3.2");
-        JMeterUtils.loadJMeterProperties("/opt/java/jakarta-jmeter-2.3.2/bin/jmeter.properties");
-        File f = new File("/home/fabrizio/Projects/RestFixture/workspace/RobustnessBuild/artefacts/Robustness.jtl");
+        JMeterUtils.setJMeterHome("/opt/java/jakarta-jmeter");
+        JMeterUtils.loadJMeterProperties("/opt/java/jakarta-jmeter/bin/jmeter.properties");
+        File f = new File("/home/fabrizio/Desktop/twitter.jtl");
         File jmxFile = new File("/home/fabrizio/Desktop/jmxGraph.png");
         File perfFile = new File("/home/fabrizio/Desktop/timeGraph.png");
         new ChartGenerator(f, jmxFile, perfFile).generate();

@@ -68,7 +68,7 @@ public class JMeterTask extends Task {
     /**
      * A collection of FileSets specifying test plans to execute.
      */
-    private ArrayList testPlans = new ArrayList();
+    private ArrayList<Object> testPlans = new ArrayList<Object>();
 
     /**
      * Whether or not to run the remote servers as specified in the properties file.
@@ -104,17 +104,17 @@ public class JMeterTask extends Task {
     /**
      * Array of arguments to be passed to the JVM that will run JMeter.
      */
-    private ArrayList jvmArgs = new ArrayList();
+    private ArrayList<Object> jvmArgs = new ArrayList<Object>();
 
     /**
      * Array of arguments to be passed to JMeter.
      */
-    private ArrayList jmeterArgs = new ArrayList();
+    private ArrayList<Object> jmeterArgs = new ArrayList<Object>();
 
     /**
      * Array of properties dynamically passed to JMeter
      */
-    private ArrayList jmProperties = new ArrayList();
+    private ArrayList<Object> jmProperties = new ArrayList<Object>();
 
     /**
      * Indicate if build to be forcefully failed upon testcase failure.
@@ -124,7 +124,7 @@ public class JMeterTask extends Task {
     /**
      * List of result log files used during run.
      */
-    private ArrayList resultLogFiles = new ArrayList();
+    private ArrayList<Object> resultLogFiles = new ArrayList<Object>();
 
     /**
      * @see org.apache.tools.ant.Task#execute()
@@ -153,7 +153,7 @@ public class JMeterTask extends Task {
         }
 
         // execute each of the test plans specified in each of the "testplans" FileSets
-        Iterator testPlanIter = testPlans.iterator();
+        Iterator<Object> testPlanIter = testPlans.iterator();
         while (testPlanIter.hasNext()) {
             FileSet fileSet = (FileSet)testPlanIter.next();
             DirectoryScanner scanner = fileSet.getDirectoryScanner(getProject());
@@ -180,7 +180,7 @@ public class JMeterTask extends Task {
      */
     protected void checkForFailures() throws BuildException {
         if (failureProperty != null && failureProperty.trim().length() > 0) {
-            for (Iterator i = resultLogFiles.iterator(); i.hasNext();) {
+            for (Iterator<Object> i = resultLogFiles.iterator(); i.hasNext();) {
                 File resultLogFile = (File)i.next();
                 log("Checking result log file " + resultLogFile.getAbsolutePath() + ".", Project.MSG_VERBOSE);
                 LineNumberReader reader = null;
@@ -241,14 +241,14 @@ public class JMeterTask extends Task {
         cmd.setJar(jmeterJar.getAbsolutePath());
 
         // Set the JVM args
-        Iterator jvmArgIterator = jvmArgs.iterator();
+        Iterator<Object> jvmArgIterator = jvmArgs.iterator();
         while (jvmArgIterator.hasNext()) {
             Arg jvmArg = (Arg)jvmArgIterator.next();
             cmd.createVmArgument().setValue(jvmArg.getValue());
         }
 
         // Set the JMeter args
-        Iterator jmeterArgIterator = jmeterArgs.iterator();
+        Iterator<Object> jmeterArgIterator = jmeterArgs.iterator();
         while (jmeterArgIterator.hasNext()) {
             Arg jmeterArg = (Arg)jmeterArgIterator.next();
             cmd.createArgument().setValue(jmeterArg.getValue());
@@ -294,7 +294,7 @@ public class JMeterTask extends Task {
         }
 
         // the JMeter runtime properties
-        Iterator jmPropertyIterator = jmProperties.iterator();
+        Iterator<Object> jmPropertyIterator = jmProperties.iterator();
         while (jmPropertyIterator.hasNext()) {
             Property jmProperty = (Property)jmPropertyIterator.next();
             if (jmProperty.isValid()) {
