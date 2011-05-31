@@ -7,9 +7,6 @@
     <property name="build" value="${basedir}/build" />
 
     <path id="project.classpath">
-        <fileset dir="${lib}">
-            <include name="**/*.jar" />
-        </fileset>
         <fileset dir="${jmeter.home}/lib">
             <include name="**/*.jar" />
         </fileset>
